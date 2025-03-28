@@ -6,7 +6,7 @@ Deployed On Netlify:
 
 # Project Overview
 
-This is a React-based user management application that interacts with the Reqres API tt includes authentication user listing and CRUD (Create, Read, Update, Delete) operations and filtering functionality for admins for optimizing we've used React Router for navigation and Redux for state management and lazy loading for better performance and debounce function for optimizing the search functionality
+This is a React-based user management application that interacts with the Reqres API includes authentication user listing and CRUD (Create, Read, Update, Delete) operations and filtering functionality for admins for optimizing we've used React Router for navigation and Redux for state management and lazy loading for better performance and debounce function for optimizing the search functionality
 
 # Featues
 
@@ -62,6 +62,8 @@ Deployment: Netlify
 Notifications: React Toastify
 
 Api: Reqres API
+
+Optimization: Lazy Loading, Debounce Function
 
 # Folder Structure
 
