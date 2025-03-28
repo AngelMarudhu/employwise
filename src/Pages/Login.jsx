@@ -64,7 +64,7 @@ const Login = () => {
             onChange={(e) => handleChange(e)}
             value={formData.password}
             required={true}
-            className="p-2 border-1 rounded-md text-bg bg-gray-100"
+            className="p-2 border-1 rounded-md text-bg bg-[#f29f67]"
           />
           <button
             className="p-2 border text-white w-30 m-auto rounded-lg cursor-pointer "
