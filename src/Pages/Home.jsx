@@ -105,21 +105,19 @@ const Home = () => {
     <div className="p-1 w-full md:w-2/3 m-auto relative">
       <ToastContainer />
 
-      <div className="flex justify-evenly bg-[#f29f67] p-2 md:justify-between items-center mb-1 border-3 border-[#1e1e2c] rounded-md">
-        <h1 className="">User List</h1>
+      <div className="flex justify-between bg-[#f29f67] p-3 items-center mb-3 border-3 border-[#1e1e2c] rounded-lg shadow-lg">
+        <h1 className="text-xl font-bold text-[#1e1e2c]">User List</h1>
 
-        <div>
-          <input
-            value={searchQuery}
-            onChange={handleSearchChange}
-            type="text"
-            placeholder="Filter By First Name"
-            className="border md:p-1 w-auto rounded-md border-[#1e1e2c] bg-gray-300"
-          />
-        </div>
+        <input
+          value={searchQuery}
+          onChange={handleSearchChange}
+          type="text"
+          placeholder="Filter By First Name"
+          className="border md:p-2 w-auto rounded-md border-[#1e1e2c] bg-gray-200 focus:ring-2 focus:ring-orange-400"
+        />
 
         <button
-          className="cursor-pointer"
+          className="px-4 py-2 cursor-pointer bg-[#1e1e2c] text-white rounded-md hover:bg-[#2d2d3d] transition duration-200"
           onClick={() => {
             dispatch(logOut());
             navigate("/");
@@ -129,54 +127,62 @@ const Home = () => {
         </button>
       </div>
 
-      <table className="w-full border-3 shadow-2xl bg-[#f29f67] border-[#1e1e2c]">
-        <thead>
-          <tr className="text-sm md:text-2xl text-center">
-            <th>Avatar</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Actions</th>
+      <table className="w-full border-3 shadow-2xl bg-[#f29f67] border-[#1e1e2c] rounded-lg">
+        <thead className="bg-[#1e1e2c] text-white">
+          <tr className="text-sm md:text-lg text-center">
+            <th className="p-2">Avatar</th>
+            <th className="p-2">First Name</th>
+            <th className="p-2">Last Name</th>
+            <th className="p-2">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {filteredResults?.map((user, index) => {
-            return (
-              <tr key={index} className="text-center">
-                <td className="border p-2">
-                  <div className="flex justify-center">
-                    <img
-                      loading="lazy"
-                      src={user.avatar}
-                      alt={user.first_name}
-                      className="h-15 md:h-20 w-15 md:w-20 rounded-full object-cover border-3 border-[#1e1e2c]"
-                    />
-                  </div>
-                </td>
-                <td className="border p-2 break-all whitespace-normal font-bold">
-                  {user.first_name}
-                </td>
-                <td className="border p-2 break-all whitespace-normal font-bold">
-                  {user.last_name}
-                </td>
-                <td className="border p-2">
-                  <div className="flex gap-2 items-center justify-center text-2xl">
-                    <MdEditSquare
-                      onClick={() => handleEdit(user)}
-                      className="border-1 border-white"
-                      cursor={"pointer"}
-                    />
-                    <MdDelete
-                      onClick={() => handleDelete(user)}
-                      className="border-1 border-white"
-                      cursor={"pointer"}
-                    />
-                  </div>
-                </td>
-              </tr>
-            );
-          })}
+          {filteredResults?.length === 0 && (
+            <tr className="text-center">
+              <td colSpan={"4"}>No users found</td>
+            </tr>
+          )}
+
+          {filteredResults?.map((user, index) => (
+            <tr
+              key={index}
+              className={`text-center ${
+                index % 2 === 0 ? "bg-[#f9c09c]" : "bg-[#f29f67]"
+              }`}
+            >
+              <td className="border p-2">
+                <div className="flex justify-center">
+                  <img
+                    loading="lazy"
+                    src={user.avatar}
+                    alt={user.first_name}
+                    className="h-16 md:h-20 w-16 md:w-20 rounded-full object-cover border-2 border-[#1e1e2c]"
+                  />
+                </div>
+              </td>
+              <td className="border p-2 break-words font-semibold text-[#1e1e2c]">
+                {user.first_name}
+              </td>
+              <td className="border p-2 break-words font-semibold text-[#1e1e2c]">
+                {user.last_name}
+              </td>
+              <td className="border p-2">
+                <div className="flex gap-3 items-center justify-center text-2xl">
+                  <MdEditSquare
+                    onClick={() => handleEdit(user)}
+                    className="text-blue-600 hover:text-blue-800 cursor-pointer transition duration-150"
+                  />
+                  <MdDelete
+                    onClick={() => handleDelete(user)}
+                    className="text-red-600 hover:text-red-800 cursor-pointer transition duration-150"
+                  />
+                </div>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
+
       <div className="flex justify-center items-center">
         <Pagination />
       </div>
