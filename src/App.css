@@ -4,12 +4,6 @@ body {
   background-color: gray;
 }
 
-input:-webkit-autofill {
-  background-color: #f29f67 !important;
-  -webkit-box-shadow: 0 0 0px 1000px #f29f67 inset !important;
-  -webkit-text-fill-color: #000000 !important;
-}
-
 .toast-message {
   background-color: black;
   color: white;
