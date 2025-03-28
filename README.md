@@ -2,7 +2,7 @@ React User Management App
 
 🚀 Live Demo
 
-Deployed On Netlify:
+Deployed On Netlify: https://employwise-tech.netlify.app/
 
 # Project Overview
 
@@ -42,7 +42,7 @@ Delete User: DELETE /api/users/{id}
 
 # Getting Started
 
-1. Clone the repository
+1. Clone the repository git clone https://github.com/AngelMarudhu/employwise.git
 2. Install dependencies npm install
 3. Start the development server npm run dev
 4. Open your browser and navigate to http://localhost:5173
@@ -55,7 +55,7 @@ State Management: Redux Toolkit
 
 HTTP Requests: Axios
 
-Routing: React Router
+Routing: React-Router-Dom
 
 Deployment: Netlify
 
