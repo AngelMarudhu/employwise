@@ -10,6 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { deleteUser } from "../Feature/userListFeature";
 import { resetDeleteUserDetails } from "../Redux/userListSlice";
 import { debounce } from "lodash";
+import { GrLogout } from "react-icons/gr";
 
 const EditUser = lazy(() => import("../Components/EditUser"));
 
@@ -113,17 +114,26 @@ const Home = () => {
           onChange={handleSearchChange}
           type="text"
           placeholder="Filter By First Name"
-          className="border md:p-2 w-auto rounded-md border-[#1e1e2c] bg-gray-200 focus:ring-2 focus:ring-orange-400"
+          className="border p-2 w-[50%] sm:w-auto rounded-md border-[#1e1e2c] bg-gray-200 focus:ring-2 focus:ring-orange-400"
         />
 
         <button
-          className="px-4 py-2 cursor-pointer bg-[#1e1e2c] text-white rounded-md hover:bg-[#2d2d3d] transition duration-200"
+          className="px-4 py-2 cursor-pointer hidden md:inline bg-[#1e1e2c] text-white rounded-md hover:bg-[#2d2d3d] transition duration-200"
           onClick={() => {
             dispatch(logOut());
             navigate("/");
           }}
         >
           Logout
+        </button>
+
+        <button className="px-4 py-2 cursor-pointer visible md:hidden bg-[#1e1e2c] text-white rounded-md hover:bg-[#2d2d3d] transition duration-200">
+          <GrLogout
+            onClick={() => {
+              dispatch(logOut());
+              navigate("/");
+            }}
+          />
         </button>
       </div>
 
