@@ -20,7 +20,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/home"
           element={
